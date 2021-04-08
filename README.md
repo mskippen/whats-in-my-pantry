@@ -36,3 +36,6 @@ THEN the saved events persist
 * The URL of the GitHub repository, with a unique name and a README describing the project: 
 
 © 2021 project1-06. Confidential and Proprietary. All Rights Reserved.
+=======
+## hi
+>>>>>>> d583e9fc327bb2fb21fb36f6974e6342f7db0f6d
