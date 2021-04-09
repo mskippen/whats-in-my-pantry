@@ -6,9 +6,9 @@ TBC
 
 ## User Story
 
-AS AN employee with a busy schedule
-YOU can add important events to a daily planner
-SO THAT YOU can manage your time effectively
+As a mom I want to view recipe with items I have in my pantry
+As a mom i want to view recipe that excludes foods that my kids are allergic to.
+As a mom I can choose if I am a cat lover or not, so if I am a cat lover I will get random cat facts.
 
 ## Features
 
@@ -32,7 +32,7 @@ THEN the saved events persist
 
 ## URLs
 
-* The URL of the deployed application:
-* The URL of the GitHub repository, with a unique name and a README describing the project:
+- The URL of the deployed application:
+- The URL of the GitHub repository, with a unique name and a README describing the project:
 
 © 2021 project1-06. Confidential and Proprietary. All Rights Reserved
