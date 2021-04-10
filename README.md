@@ -32,7 +32,7 @@ THEN the saved events persist
 
 ## URLs
 
-* The URL of the deployed application:
-* The URL of the GitHub repository, with a unique name and a README describing the project:
+* The URL of the deployed application: <https://mskippen.github.io/whats-in-my-pantry/>
+* The URL of the GitHub repository, with a unique name and a README describing the project: <https://github.com/mskippen/whats-in-my-pantry.git>
 
 © 2021 project1-06. Confidential and Proprietary. All Rights Reserved
