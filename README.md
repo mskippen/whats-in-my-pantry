@@ -1,6 +1,6 @@
-# Whats in my pantry
+# What's in my pantry
 
-## The App Functionality
+## The app functionality
 
 This is an app that will display recipes based on a list of food items that are currently in your pantry ready to use. The app will allow you to check against any allergies. A fun fact will also be presented at the bottom of the recipe.
 
@@ -13,7 +13,7 @@ TRISHA also needs to check for allergies as her children have nut and lactose al
 The app will only display recipes that use those ingredients and rules out any with corresponding allergies
 TRISHA also likes this app as she wants to entertain the kids and knows that the recipes also include a fun fact at the bottom of the recipe she can share with the kids
 
-## User Story
+## User story
 
 AS A PARENT with a busy schedule
 YOU can add ingredients to find recipe's
