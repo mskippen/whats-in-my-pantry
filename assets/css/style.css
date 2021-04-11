@@ -1,30 +1,29 @@
-/* other styling here
-
-print
-.opacity-0 { opacity: 0; }
-.opacity-25 { opacity: .25; }
-.opacity-50 { opacity: .5; }
-.opacity-75 { opacity: .75; }
-.opacity-100 { opacity: 1; }
-
-@media print {
-  .opacity-print-0 { opacity: 0; }
-  .opacity-print-25 { opacity: .25; }
-  .opacity-print-50 { opacity: .5; }
-  .opacity-print-75 { opacity: .75; }
-  .opacity-print-100 { opacity: 1; }
+body {
+  font-family: 'Roboto Slab', serif;
 }
-/*mobile*/
-/* @media screen and (max-width: 900px) {
-    .column {
-      width: 50%;
-    }
-  }
-  
-  @media screen and (max-width: 600px) {
-    .column {
-      width: 100%;
-    }
-  /* } */ 
 
-  
+h1 {
+  font-family: 'Dancing Script', cursive;
+  color: black;
+  font-size: 70px;
+}
+
+.fa-utensils {
+  font-size: 70px;
+  color: black;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .fa-utensils {
+    font-size: 40px;
+    color: black;
+  }
+
+
+}
