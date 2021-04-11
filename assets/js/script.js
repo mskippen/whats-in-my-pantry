@@ -32,9 +32,10 @@ function getApi() {
       console.log(data);
       if (ingredientsAll == "") {
         alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
+        return;
       } else if (data.hits.length === 0) {
         alert('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird.');
-
+        return;
       }
 
 
