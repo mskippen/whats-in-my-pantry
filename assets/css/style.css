@@ -1,6 +1,6 @@
-/* other styling here*/
+/* other styling here
 
-/*print*/
+print
 .opacity-0 { opacity: 0; }
 .opacity-25 { opacity: .25; }
 .opacity-50 { opacity: .5; }
@@ -15,7 +15,7 @@
   .opacity-print-100 { opacity: 1; }
 }
 /*mobile*/
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
     .column {
       width: 50%;
     }
@@ -25,4 +25,6 @@
     .column {
       width: 100%;
     }
-  }
+  /* } */ 
+
+  
