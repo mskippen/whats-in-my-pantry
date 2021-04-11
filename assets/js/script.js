@@ -1,3 +1,4 @@
+
 var issueContainer = document.getElementById('issues');
 var fetchButton = document.getElementById('fetch-button');
 var ingredientID = document.getElementById('ingredients');
