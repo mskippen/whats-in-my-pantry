@@ -1,50 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-<!--Printable Recipie Cards?-->
-    <link rel="stylesheet" type="text/css" media="print" href="bootstrap.min.css"> 
-    <title>What's in my Pantry</title>
-<!--favicon--> 
-<link rel="shortcut icon" type="image/png" href="assets/image/favicon.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>What's in my Pantry</title>
 </head>
-<body>
-            <!--Bootstrap-->
-    <div class="jumbotron text-center">
-      </div>
 
-             <!--Dietary Requirements-->
-        <div class="row g-3 align-items-center">
-            <div class="col-auto">
-                <label for="dietaryRequirements" class="col-form-label">Dietary Requirements</label>
+
+  <body class="min-100-vh flex-column">
+    <header class="p-5 text-center text-white bg-primary">
+      <h1>What's in my pantry?</h1>
+    </header>
+    <main class="flex-row justify-center align-center p-4 bg-light">
+      <section class="card card-rounded col-12 bg-white">
+
+        <div class="text-center p-4">
+          <label for="ingredients">Add your ingredients:</label>
+          <div class="input-group mb-3">
+
+            <input type="text" class="form-control" placeholder="Add an ingredient" id="ingredients"
+              aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-success" id="addList" type="button"><i class="fas fa-plus"></i></button>
             </div>
-            <div class="col-auto">
-                <input type="dietaryRequirements" id="dietaryRequirements" class="form-control" aria-describedby="dietaryRequirements">
-            </div>
-            <div class="col-auto">
-                <span id="dietaryRequirements" class="form-text">
-                    Please state what your dietary requirements are. This includes; Allergies, Kosher, Halal, Vegetarian, etc  
-                </span>
-            </div>
+          </div>
+
+          <label for="dietary-requirements">Any dietary requirements?</label>
+          <select class="form-select" id="choosen" aria-label="Default select example">
+            <option selected>None</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten-free">Gluten free</option>
+            <option value="dairy-free">Dairy free</option>
+            <option value="peanut-free">Peanut free</option>
+            <option value="low-sugar">No sugar</option>
+            <option value="low-sodium">Low salt</option>
+          </select>
+          <br>
+
+          <button class="btn btn-primary" id="fetch-button">
+            Get Recipes
+          </button>
+          <button class="btn btn-danger" onClick="window.location.reload();">
+            Refresh
+          </button>
         </div>
 
-   
 
-</body>
-<script type='text/javascript' src="assets/js/script.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-  integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-  crossorigin="anonymous"></script>
+        <div class="container" id="yourIngredients"></div>
+
+        <br>
+        <div class="container" id="issues"></div>
+        <div class="row">
+          <div class="col-12">
+            <div class="card-group" id="card-group">
+
+              <div class="card-group" id="card-group2">
+
+              </div>
+            </div>
+          </div>
+
+      </section>
+    </main>
+
+  </body>
+  <script type='text/javascript' src="assets/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"></script>
+
 </html>
