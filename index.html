@@ -10,11 +10,34 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+<!--Printable Recipie Cards?-->
+    <link rel="stylesheet" type="text/css" media="print" href="bootstrap.min.css"> 
     <title>What's in my Pantry</title>
-
+<!--favicon--> 
+<link rel="shortcut icon" type="image/png" href="assets/image/favicon.png">
 </head>
 <body>
-    
+            <!--Bootstrap-->
+    <div class="jumbotron text-center">
+      </div>
+
+             <!--Dietary Requirements-->
+        <div class="row g-3 align-items-center">
+            <div class="col-auto">
+                <label for="dietaryRequirements" class="col-form-label">Dietary Requirements</label>
+            </div>
+            <div class="col-auto">
+                <input type="dietaryRequirements" id="dietaryRequirements" class="form-control" aria-describedby="dietaryRequirements">
+            </div>
+            <div class="col-auto">
+                <span id="dietaryRequirements" class="form-text">
+                    Please state what your dietary requirements are. This includes; Allergies, Kosher, Halal, Vegetarian, etc  
+                </span>
+            </div>
+        </div>
+
+   
+
 </body>
 <script type='text/javascript' src="assets/js/script.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"

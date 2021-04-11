@@ -1,0 +1,28 @@
+/* other styling here*/
+
+/*print*/
+.opacity-0 { opacity: 0; }
+.opacity-25 { opacity: .25; }
+.opacity-50 { opacity: .5; }
+.opacity-75 { opacity: .75; }
+.opacity-100 { opacity: 1; }
+
+@media print {
+  .opacity-print-0 { opacity: 0; }
+  .opacity-print-25 { opacity: .25; }
+  .opacity-print-50 { opacity: .5; }
+  .opacity-print-75 { opacity: .75; }
+  .opacity-print-100 { opacity: 1; }
+}
+/*mobile*/
+@media screen and (max-width: 900px) {
+    .column {
+      width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+    }
+  }
