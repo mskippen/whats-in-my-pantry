@@ -194,6 +194,8 @@ clearBtn.addEventListener("click", clearStorage);
 function clearStorage() {
   localStorage.clear();
   ingredientIDShow.innerHTML = "";
+  cardGroup.innerHTML = "";
+  cardGroup2.innerHTML = "";
   ingredientsAll = [];
 };
 
