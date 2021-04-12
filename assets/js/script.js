@@ -8,6 +8,17 @@ var cardsShow = document.querySelector('.card');
 var cardGroup = document.querySelector('#card-group');
 var cardGroup2 = document.querySelector('#card-group2');
 
+// Set var parse to local storage
+var savedIngredients = JSON.parse(localStorage.getItem("ingredients")) || []
+console.log(savedIngredients)
+window.addEventListener("load", function() {
+  savedIngredients.forEach(function(ingredient) {
+    var newIngredientBtn = document.createElement('p');
+    newIngredientBtn.textContent = ingredient;
+    ingredientIDShow.append(newIngredientBtn);
+    document.getElementById("ingredients").value = "";
+  })
+})
 var ingredientsAll = [];
 
 function getApi() {
@@ -95,7 +106,18 @@ function getApi() {
       }
     });
 }
-
+// Start local storage
+function saveToLocalStorage (ingredient) {
+  var ingredientArr = []
+  if(localStorage.getItem("ingredients") === null) {
+      ingredientArr = []
+  } else {
+      ingredientArr = JSON.parse(localStorage.getItem("ingredients"))
+  }
+  ingredientArr.push(ingredient)
+  localStorage.setItem("ingredients", JSON.stringify(ingredientArr))
+}
+// End local storage
 
 fetchButton.addEventListener('click', getApi);
 
@@ -108,6 +130,8 @@ function addToList(event) {
   newIngredientBtn.textContent = search;
   ingredientIDShow.append(newIngredientBtn);
   document.getElementById("ingredients").value = "";
+  console.log(search)
+  saveToLocalStorage(search) //save to local storage
 }
 
 

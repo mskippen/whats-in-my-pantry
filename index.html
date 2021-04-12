@@ -51,11 +51,10 @@
         <button class="btn btn-warning" id="fetch-button">
           Get Recipes
         </button>
-        <button class="btn btn-dark" onClick="window.location.reload();">
+        <button class="btn btn-dark" onClick="window.location.reload();localStorage.removeItem('ingredients')">
           Refresh
         </button>
       </div>
-
 
       <div class="container" id="yourIngredients"></div>
 
