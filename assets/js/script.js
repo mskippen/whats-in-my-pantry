@@ -9,7 +9,6 @@ var cardGroup = document.querySelector('#card-group');
 var cardGroup2 = document.querySelector('#card-group2');
 var clearBtn = document.querySelector('#clearBtn');
 
-
 var ingredientsAll = JSON.parse(localStorage.getItem("todos")) || [];
 console.log(ingredientsAll);
 
@@ -170,9 +169,7 @@ function addToList(event) {
   getStorage()
 }
 
-
 addList.addEventListener('click', addToList);
-
 
 ingredientID.addEventListener("keyup", function (event) {
   // Number 13 is the "Enter" key on the keyboard
@@ -201,17 +198,18 @@ function clearStorage() {
 };
 
 // Add click event to todoList element
-ingredientIDShow.addEventListener("click", function(event) {
+ingredientIDShow.addEventListener("click", function (event) {
   var element = event.target;
 
+  console.log(element);
   // Checks if element is a button
   if (element.matches("button") === true) {
-    // Get its data-index value and remove the todo element from the list
-    var index = element.parentElement.getAttribute("data-index");
-    ingredientsAll.splice(index, 1);
-    console.log(ingredientsAll);
-    // Store updated todos in localStorage, re-render the list
+    var index = element.getAttribute("data-index");
+    const newArray = ingredientsAll.filter(item => item !== index)
+    ingredientsAll = newArray;
+    console.log(newArray);
     storeTodos();
     getStorage();
   }
 });
+
