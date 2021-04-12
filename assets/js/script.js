@@ -7,46 +7,59 @@ var addList = document.getElementById('addList');
 var cardsShow = document.querySelector('.card');
 var cardGroup = document.querySelector('#card-group');
 var cardGroup2 = document.querySelector('#card-group2');
+var clearBtn = document.querySelector('#clearBtn');
 
-// Set var parse to local storage
-var savedIngredients = JSON.parse(localStorage.getItem("ingredients")) || []
-console.log(savedIngredients)
-window.addEventListener("load", function() {
-  savedIngredients.forEach(function(ingredient) {
-    var newIngredientBtn = document.createElement('p');
-    newIngredientBtn.textContent = ingredient;
+
+var ingredientsAll = JSON.parse(localStorage.getItem("todos")) || [];
+console.log(ingredientsAll);
+
+getStorage();
+
+function getStorage() {
+  ingredientIDShow.innerHTML = "";
+  var storedStuff = JSON.parse(localStorage.getItem("todos"));
+  if (storedStuff === null) {
+
+    return;
+  }
+  for (var i = 0; i < storedStuff.length; i++) {
+
+    var newIngredientBtn = document.createElement('button');
+    newIngredientBtn.classList = 'btn btn-primary m-1';
+    newIngredientBtn.textContent = storedStuff[i];
+    newIngredientBtn.setAttribute("data-index", storedStuff[i]);
     ingredientIDShow.append(newIngredientBtn);
-    document.getElementById("ingredients").value = "";
-  })
-})
-var ingredientsAll = [];
+    var newIngredientCross = document.createElement('i');
+    newIngredientCross.classList = 'm-1 fas fa-times';
+    newIngredientBtn.append(newIngredientCross);
+
+
+
+  }
+  if (storedStuff !== null) {
+    ingredientsAll = storedStuff;
+  }
+};
+
 
 // cat fact api start
 var fURL = 'https://cat-fact.herokuapp.com/facts';
- 
+
 fetch(fURL)
-.then(function (response) {
+  .then(function (response) {
     if (response.ok) {
-        response.json().then(function (data) {
-            random = Math.floor(Math.random() * 5);                
-            $('#modal-body').text(data[random].text);
-        });
-          } else {
-            alert('Error: ' + response.statusText);
-          }
-        })
-        .catch(function (error) {
-          alert('Unable to connect to cat facts');
-        });
+      response.json().then(function (data) {
+        random = Math.floor(Math.random() * 5);
+        $('#modal-body').text(data[random].text);
+      });
+    } else {
+      alert('Error: ' + response.statusText);
+    }
+  })
+  .catch(function (error) {
+    alert('Unable to connect to cat facts');
+  });
 
-      //   document.getElementById('close-modal').onclick = function changeContent() {
-
-      //     $("#exampleModal").modal("hide"); 
-       
-      //  }
-      
-
-// cat fact api end        
 
 function getApi() {
   var plusSymbol = ingredientsAll.join("+");
@@ -60,9 +73,6 @@ function getApi() {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b&health=' + selectedValue;
   }
 
-  // if (document.getElementById('yes').checked) {
-  //   $("#exampleModal").modal('show');
-  // } 
 
 
 
@@ -84,7 +94,7 @@ function getApi() {
 
 
 
-      for (var i = 0; i < 4; i++) {
+      for (var i = 0; i < 5; i++) {
         newCard = document.createElement('div');
         newCard.classList = 'card';
         cardGroup.appendChild(newCard);
@@ -111,7 +121,7 @@ function getApi() {
 
       }
 
-      for (var i = 4; i < 9; i++) {
+      for (var i = 5; i < 10; i++) {
         newCard = document.createElement('div');
         newCard.classList = 'card';
         cardGroup2.appendChild(newCard);
@@ -139,18 +149,7 @@ function getApi() {
       }
     });
 }
-// Start local storage
-function saveToLocalStorage (ingredient) {
-  var ingredientArr = []
-  if(localStorage.getItem("ingredients") === null) {
-      ingredientArr = []
-  } else {
-      ingredientArr = JSON.parse(localStorage.getItem("ingredients"))
-  }
-  ingredientArr.push(ingredient)
-  localStorage.setItem("ingredients", JSON.stringify(ingredientArr))
-}
-// End local storage
+
 
 fetchButton.addEventListener('click', getApi);
 
@@ -158,13 +157,17 @@ function addToList(event) {
   event.preventDefault();
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
-  console.log(ingredientsAll);
-  var newIngredientBtn = document.createElement('p');
+  var newIngredientBtn = document.createElement('button');
+  newIngredientBtn.classList = 'btn btn-primary m-1';
   newIngredientBtn.textContent = search;
+  newIngredientBtn.setAttribute("data-index", search);
   ingredientIDShow.append(newIngredientBtn);
+  var newIngredientCross = document.createElement('i');
+  newIngredientCross.classList = 'm-1 fas fa-times';
+  newIngredientBtn.append(newIngredientCross);
   document.getElementById("ingredients").value = "";
-  console.log(search)
-  saveToLocalStorage(search) //save to local storage
+  storeTodos();
+  getStorage()
 }
 
 
@@ -178,5 +181,37 @@ ingredientID.addEventListener("keyup", function (event) {
     event.preventDefault();
     // Trigger the button element with a click
     document.getElementById("addList").click();
+  }
+});
+
+
+function storeTodos() {
+  // Stringify and set key in localStorage to todos array
+  localStorage.setItem("todos", JSON.stringify(ingredientsAll));
+}
+
+// on click run clear storage
+clearBtn.addEventListener("click", clearStorage);
+
+
+function clearStorage() {
+  localStorage.clear();
+  ingredientIDShow.innerHTML = "";
+  ingredientsAll = [];
+};
+
+// Add click event to todoList element
+ingredientIDShow.addEventListener("click", function(event) {
+  var element = event.target;
+
+  // Checks if element is a button
+  if (element.matches("button") === true) {
+    // Get its data-index value and remove the todo element from the list
+    var index = element.parentElement.getAttribute("data-index");
+    ingredientsAll.splice(index, 1);
+    console.log(ingredientsAll);
+    // Store updated todos in localStorage, re-render the list
+    storeTodos();
+    getStorage();
   }
 });
