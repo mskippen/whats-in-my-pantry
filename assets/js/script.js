@@ -41,6 +41,7 @@ function getStorage() {
 };
 
 
+
 // cat fact api start
 var fURL = 'https://cat-fact.herokuapp.com/facts';
 
@@ -74,7 +75,7 @@ function getApi() {
 
 
 
-
+  fetchButton.addEventListener('click', fetch);
   console.log(requestUrl);
 
   fetch(requestUrl)
@@ -82,6 +83,8 @@ function getApi() {
       return response.json();
     })
     .then(function (data) {
+      cardGroup.innerHTML = "";
+      cardGroup2.innerHTML = "";
       console.log(data);
       if (ingredientsAll == "") {
         alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
@@ -147,6 +150,8 @@ function getApi() {
 
       }
     });
+
+    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#card-group";
 }
 
 
@@ -214,4 +219,3 @@ ingredientIDShow.addEventListener("click", function (event) {
     getStorage();
   }
 });
-
