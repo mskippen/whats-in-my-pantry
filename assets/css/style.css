@@ -1,0 +1,32 @@
+body {
+  font-family: 'Roboto Slab', serif;
+}
+
+h1 {
+  font-family: 'Dancing Script', cursive;
+  color: black;
+  font-size: 70px;
+}
+
+.fa-utensils {
+  font-size: 70px;
+  color: black;
+}
+
+
+
+
+
+
+@media screen and (max-width: 767px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  .fa-utensils {
+    font-size: 40px;
+    color: black;
+  }
+
+
+}
