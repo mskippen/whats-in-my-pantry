@@ -14,9 +14,7 @@ h1 {
 }
 
 
-
-
-
+/*mobile compatable*/
 
 @media screen and (max-width: 767px) {
   h1 {
