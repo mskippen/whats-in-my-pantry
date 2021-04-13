@@ -12,6 +12,17 @@ h1 {
   font-size: 70px;
 }
 
+#choosen {
+  width:300px;
+  margin: 0 auto;
+}
+
+.input-group {
+  width:300px;
+  margin: 0 auto;
+}
+
+
 .fa-utensils {
   font-size: 70px;
   color: black;
