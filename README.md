@@ -39,15 +39,15 @@ THEN the saved events persist
 
 ## The following images demonstrate the application functionality
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./assets)
+![A user clicks on slots on the color-coded calendar and edits the events.]
 
 ## The following provides details of the project team involved in the development of this app
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./assets/img/WhatsInMyPantryPT.png)
+![A user clicks on slots on the color-coded calendar and edits the events.](./assets/img/whatsInMyPantryPT.png)
 
 ## URLs
 
-- The URL of the deployed application: <https://mskippen.github.io/whats-in-my-pantry/><br>
+- The URL of the deployed application: <https://mskippen.github.io/whats-in-my-pantry/>
 - The URL of the GitHub repository, with a unique name and a README describing the project: <https://github.com/mskippen/whats-in-my-pantry.git>
 
 © 2021 project1-06. Confidential and Proprietary. All Rights Reserved
