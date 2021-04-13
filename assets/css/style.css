@@ -3,11 +3,11 @@ html {
 }
 
 body {
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 
 h1 {
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   color: black;
   font-size: 70px;
 }
@@ -16,11 +16,6 @@ h1 {
   font-size: 70px;
   color: black;
 }
-
-
-/*mobile compatable*/
-
-
 
 @media screen and (max-width: 767px) {
   h1 {
@@ -31,6 +26,4 @@ h1 {
     font-size: 40px;
     color: black;
   }
-
-
 }
