@@ -219,8 +219,9 @@ function addToList(event) {
 
   // if no text in the ingredient field return from running the below code
   if (ingredientID.value === "") {
-    alert('You have not typed an ingredient in the ingredient field');
-    return;
+    $('#modal-body-error').text('You have not typed an ingredient in the ingredient field');
+        $("#errorModal").modal('show');
+    
   }
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
