@@ -52,16 +52,22 @@ fetch(fURL)
             random = Math.floor(Math.random() * 5);                
             $('#modal-body').text(data[random].text);
         });
-          } else {
-            alert('Error: ' + response.statusText);
+          } else {            
+            $('#modal-body-error').text('Error: ' + response.statusText);
+            $("#errorModal").modal('show');
           }
         })
-        .catch(function (error) {
-          alert('Unable to connect to cat facts');
+        .catch(function (error) {         
+          $('#modal-body-error').text('Unable to connect to cat facts');
+          $("#errorModal").modal('show');
         });
 
 document.getElementById('close-modal').onclick = function changeContent() {
   $("#factModal").modal("hide");
+}
+
+document.getElementById('close-modal-error').onclick = function changeContent() {
+  $("#errorModal").modal("hide");
 }
       
 
