@@ -42,21 +42,30 @@ var fURL = 'https://cat-fact.herokuapp.com/facts';
 fetch(fURL)
   .then(function (response) {
     if (response.ok) {
-      response.json().then(function (data) {
-        random = Math.floor(Math.random() * 5);
-        $('#modal-body').text(data[random].text);
-      });
-    } else {
-      alert('Error: ' + response.statusText);
-    }
-  })
-  .catch(function (error) {
-    alert('Unable to connect to cat facts');
-  });
+        response.json().then(function (data) {
+            random = Math.floor(Math.random() * 5);                
+            $('#modal-body').text(data[random].text);
+        });
+          } else {            
+            $('#modal-body-error').text('Error: ' + response.statusText);
+            $("#errorModal").modal('show');
+          }
+        })
+        .catch(function (error) {         
+          $('#modal-body-error').text('Unable to connect to cat facts');
+          $("#errorModal").modal('show');
+        });
 
 document.getElementById('close-modal').onclick = function changeContent() {
   $("#factModal").modal("hide");
 }
+
+document.getElementById('close-modal-error').onclick = function changeContent() {
+  $("#errorModal").modal("hide");
+}
+      
+
+// cat fact api end        
 
 // concatinate requestUrl using user parameters
 function getApi() {
@@ -85,11 +94,15 @@ function getApi() {
       cardGroup2.innerHTML = "";
       console.log(data);
       if (ingredientsAll == "") {
-        alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
-        return;
+        // alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
+        // return;
+        $('#modal-body-error').text('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient. ');
+        $("#errorModal").modal('show');
       } else if (data.hits.length === 0) {
-        alert('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird.');
-        return;
+        // alert('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird.');
+        // return;
+        $('#modal-body-error').text('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird. ');
+        $("#errorModal").modal('show');
       }
 
       //  make row of 5 bootstrap cards for the recipes the API finds
