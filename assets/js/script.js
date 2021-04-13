@@ -222,6 +222,7 @@ function addToList(event) {
     $('#modal-body-error').text('You have not typed an ingredient in the ingredient field');
         $("#errorModal").modal('show');
     
+    return;
   }
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
