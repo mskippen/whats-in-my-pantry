@@ -31,8 +31,7 @@
         <label for="ingredients">Add your ingredients:</label>
         <div class="input-group mb-3">
 
-          <input type="text" class="form-control" placeholder="Add an ingredient" id="ingredients"
-            aria-label="Recipient's username" aria-describedby="basic-addon2">
+          <input type="text" class="form-control" placeholder="Add an ingredient" id="ingredients">
           <div class="input-group-append">
             <button class="btn btn-success" id="addList" type="button"><i class="fas fa-plus"></i></button>
           </div>
@@ -41,15 +40,14 @@
         <div class="mb-3" id="yourIngredients"></div>
 
         <label for="dietary-requirements">Any dietary requirements?</label>
-        <select class="form-select" id="choosen" aria-label="Default select example">
+        <select class="form-select" id="choosen">
           <option selected>None</option>
           <option value="vegetarian">Vegetarian</option>
           <option value="vegan">Vegan</option>
           <option value="gluten-free">Gluten free</option>
           <option value="dairy-free">Dairy free</option>
-          <option value="peanut-free">Peanut free</option>
-          <option value="low-sugar">No sugar</option>
           <option value="kosher">Kosher</option>
+          <option value="peanut-free">Peanut free</option>
         </select>
 
         <div class="text-center p-4">
@@ -68,7 +66,7 @@
         <br>
         <br>
 
-     
+
 
         <button class="btn btn-warning" id="fetch-button">
           Get Recipes
@@ -77,28 +75,22 @@
           Clear
         </button>
       </div>
-
-
-
       <br>
-      <div class="container" id="issues"></div>
 
-      
-        <div class="row">
-          <div class="col-12">
-            <div id="top"></div>
-            <div class="card-group" id="card-group">
-            </div>
+      <!-- where the recipe cards go -->
+      <div class="row">
+        <div class="col-12">
+          <div id="top"></div>
+          <div class="card-group" id="card-group">
           </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              <div class="card-group" id="card-group2">
-
-              </div>
-            </div>
-         
         </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card-group" id="card-group2">
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -109,7 +101,6 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="factModalLabel">Fun Fact!!!</h5>
-         
         </div>
         <div class="modal-body" id="modal-body">
           ...
@@ -122,14 +113,14 @@
     </div>
   </div>
 
-    <!-- Modal for error-->
-    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <!-- Modal for error-->
+  <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Cat Fact!!!</h5>
-         
+
         </div>
         <div class="modal-body" id="modal-body">
           ...
