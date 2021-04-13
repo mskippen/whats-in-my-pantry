@@ -42,19 +42,19 @@ var fURL = 'https://cat-fact.herokuapp.com/facts';
 fetch(fURL)
   .then(function (response) {
     if (response.ok) {
-        response.json().then(function (data) {
-            random = Math.floor(Math.random() * 5);                
-            $('#modal-body').text(data[random].text);
-        });
-          } else {            
-            $('#modal-body-error').text('Error: ' + response.statusText);
-            $("#errorModal").modal('show');
-          }
-        })
-        .catch(function (error) {         
-          $('#modal-body-error').text('Unable to connect to cat facts');
-          $("#errorModal").modal('show');
-        });
+      response.json().then(function (data) {
+        random = Math.floor(Math.random() * 5);
+        $('#modal-body').text(data[random].text);
+      });
+    } else {
+      $('#modal-body-error').text('Error: ' + response.statusText);
+      $("#errorModal").modal('show');
+    }
+  })
+  .catch(function (error) {
+    $('#modal-body-error').text('Unable to connect to cat facts');
+    $("#errorModal").modal('show');
+  });
 
 document.getElementById('close-modal').onclick = function changeContent() {
   $("#factModal").modal("hide");
@@ -63,7 +63,7 @@ document.getElementById('close-modal').onclick = function changeContent() {
 document.getElementById('close-modal-error').onclick = function changeContent() {
   $("#errorModal").modal("hide");
 }
-      
+
 
 // cat fact api end        
 
@@ -107,56 +107,106 @@ function getApi() {
 
       //  make row of 5 bootstrap cards for the recipes the API finds
       for (var i = 0; i < 5; i++) {
-        newCard = document.createElement('div');
-        newCard.classList = 'card';
-        cardGroup.appendChild(newCard);
-        innerCard = document.createElement('div');
-        innerCard.classList = 'card-body';
-        newCard.appendChild(innerCard);
 
-        var recipeImg = document.createElement('img');
-        recipeImg.setAttribute('src', data.hits[i].recipe.image);
-        newCard.append(recipeImg);
+        if (i % 2 == 0) {
+          newCard = document.createElement('div');
+          newCard.classList = 'card';
+          cardGroup.appendChild(newCard);
+          innerCard = document.createElement('div');
+          innerCard.classList = 'card-body';
+          newCard.appendChild(innerCard);
 
-        cardContent = document.createElement('h5');
-        cardContent.textContent = data.hits[i].recipe.label;
-        innerCard.appendChild(cardContent);
+          var recipeImg = document.createElement('img');
+          recipeImg.setAttribute('src', data.hits[i].recipe.image);
+          newCard.append(recipeImg);
 
-        cardContent2 = document.createElement('a')
-        cardContent2.setAttribute('href', data.hits[i].recipe.url);
-        cardContent2.classList = 'btn btn-primary';
-        cardContent2.textContent = "See recipe";
-        innerCard.appendChild(cardContent2);
+          cardContent = document.createElement('h5');
+          cardContent.textContent = data.hits[i].recipe.label;
+          innerCard.appendChild(cardContent);
+
+          cardContent2 = document.createElement('a')
+          cardContent2.setAttribute('href', data.hits[i].recipe.url);
+          cardContent2.classList = 'btn btn-primary';
+          cardContent2.textContent = "See recipe";
+          innerCard.appendChild(cardContent2);
+        } else {
+          newCard = document.createElement('div');
+          newCard.classList = 'card';
+          cardGroup.appendChild(newCard);
+          innerCard = document.createElement('div');
+          innerCard.classList = 'card-body bg-dark';
+          newCard.appendChild(innerCard);
+
+          var recipeImg = document.createElement('img');
+          recipeImg.setAttribute('src', data.hits[i].recipe.image);
+          newCard.append(recipeImg);
+
+          cardContent = document.createElement('h5');
+          cardContent.classList = 'text-white';
+          cardContent.textContent = data.hits[i].recipe.label;
+          innerCard.appendChild(cardContent);
+
+          cardContent2 = document.createElement('a')
+          cardContent2.setAttribute('href', data.hits[i].recipe.url);
+          cardContent2.classList = 'btn btn-primary';
+          cardContent2.textContent = "See recipe";
+          innerCard.appendChild(cardContent2);
+        }
       }
 
       //  make another row of 5 bootstrap cards for the recipes the API finds
       for (var i = 5; i < 10; i++) {
-        newCard = document.createElement('div');
-        newCard.classList = 'card';
-        cardGroup2.appendChild(newCard);
-        innerCard = document.createElement('div');
-        innerCard.classList = 'card-body';
-        newCard.appendChild(innerCard);
 
-        var recipeImg = document.createElement('img');
-        recipeImg.setAttribute('src', data.hits[i].recipe.image)
-        newCard.append(recipeImg);
+        if (i % 2 == 0) {
+          newCard = document.createElement('div');
+          newCard.classList = 'card';
+          cardGroup2.appendChild(newCard);
+          innerCard = document.createElement('div');
+          innerCard.classList = 'card-body';
+          newCard.appendChild(innerCard);
 
-        cardContent = document.createElement('h5');
-        cardContent.textContent = data.hits[i].recipe.label;
-        innerCard.appendChild(cardContent);
+          var recipeImg = document.createElement('img');
+          recipeImg.setAttribute('src', data.hits[i].recipe.image)
+          newCard.append(recipeImg);
 
-        cardContent2 = document.createElement('a')
-        cardContent2.setAttribute('href', data.hits[i].recipe.url);
-        cardContent2.classList = 'btn btn-primary';
-        cardContent2.textContent = "See recipe";
-        innerCard.appendChild(cardContent2);
+          cardContent = document.createElement('h5');
+          cardContent.textContent = data.hits[i].recipe.label;
+          innerCard.appendChild(cardContent);
+
+          cardContent2 = document.createElement('a')
+          cardContent2.setAttribute('href', data.hits[i].recipe.url);
+          cardContent2.classList = 'btn btn-primary';
+          cardContent2.textContent = "See recipe";
+          innerCard.appendChild(cardContent2);
+        } else {
+          newCard = document.createElement('div');
+          newCard.classList = 'card';
+          cardGroup2.appendChild(newCard);
+          innerCard = document.createElement('div');
+          innerCard.classList = 'card-body bg-dark';
+          newCard.appendChild(innerCard);
+
+          var recipeImg = document.createElement('img');
+          recipeImg.setAttribute('src', data.hits[i].recipe.image)
+          newCard.append(recipeImg);
+
+          cardContent = document.createElement('h5');
+          cardContent.classList = 'text-white';
+          cardContent.textContent = data.hits[i].recipe.label;
+          innerCard.appendChild(cardContent);
+
+          cardContent2 = document.createElement('a')
+          cardContent2.setAttribute('href', data.hits[i].recipe.url);
+          cardContent2.classList = 'btn btn-primary';
+          cardContent2.textContent = "See recipe";
+          innerCard.appendChild(cardContent2);
+        }
       }
     });
 
   // scrolls user down to the top of the first row of cards
   setTimeout(function afterTwoSeconds() {
-    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
+    window.location.href = "file:///Users/watts/Desktop/Bootcamp/Homework/whats-in-my-pantry/index.html#top";
   }, 2000)
 }
 
