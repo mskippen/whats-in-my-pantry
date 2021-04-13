@@ -104,11 +104,15 @@ function getApi() {
       cardGroup2.innerHTML = "";
       console.log(data);
       if (ingredientsAll == "") {
-        alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
-        return;
+        // alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
+        // return;
+        $('#modal-body-error').text('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient. ');
+        $("#errorModal").modal('show');
       } else if (data.hits.length === 0) {
-        alert('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird.');
-        return;
+        // alert('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird.');
+        // return;
+        $('#modal-body-error').text('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird. ');
+        $("#errorModal").modal('show');
       }
 
 
