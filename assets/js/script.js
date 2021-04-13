@@ -76,6 +76,7 @@ document.getElementById('close-modal-error').onclick = function changeContent() 
 function getApi() {
   var plusSymbol = ingredientsAll.join("+");
   console.log(plusSymbol);
+ 
   var selectedValue = selectedElement.value;
 
   if (selectedValue == 'None') {
@@ -84,6 +85,8 @@ function getApi() {
   } else {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b&health=' + selectedValue;
   }
+  
+ 
 
   if (document.getElementById('yes').checked) {
     
@@ -102,7 +105,7 @@ function getApi() {
     .then(function (data) {
       cardGroup.innerHTML = "";
       cardGroup2.innerHTML = "";
-      console.log(data);
+      console.log(data);      
       if (ingredientsAll == "") {
         // alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
         // return;
@@ -180,6 +183,11 @@ function getApi() {
 fetchButton.addEventListener('click', getApi);
 
 function addToList(event) {
+
+  $('#confirm-fact').show();
+  $('#yes-option').show();
+  $('#no-option').show();
+
   event.preventDefault();
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
@@ -199,8 +207,13 @@ function addToList(event) {
 addList.addEventListener('click', addToList);
 
 ingredientID.addEventListener("keyup", function (event) {
+  
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
+    $('#confirm-fact').show();
+    $('#yes-option').show();
+    $('#no-option').show();
+   
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
@@ -241,3 +254,7 @@ ingredientIDShow.addEventListener("click", function (event) {
     getStorage();
   }
 });
+
+$('#confirm-fact').hide();
+$('#yes-option').hide();
+$('#no-option').hide();
