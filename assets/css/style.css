@@ -13,12 +13,12 @@ h1 {
 }
 
 #choosen {
-  width:300px;
+  width:400px;
   margin: 0 auto;
 }
 
 .input-group {
-  width:300px;
+  width:400px;
   margin: 0 auto;
 }
 
@@ -37,4 +37,15 @@ h1 {
     font-size: 40px;
     color: black;
   }
+
+  #choosen {
+    width:100%;
+    margin: 0 auto;
+  }
+  
+  .input-group {
+    width:100%;
+    margin: 0 auto;
+  }
+  
 }
