@@ -43,7 +43,7 @@ THEN the saved events persist
 
 ## The following provides details of the project team involved in the development of this app
 
-![Project Team](./assets/img/whatsInMyPantryPT.JPG)
+![This is the project team involved in the development of 'What's in my pantry'](./assets/img/whatsInMyPantryPT.JPG)
 
 ## URLs
 
