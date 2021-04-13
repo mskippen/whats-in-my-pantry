@@ -39,11 +39,11 @@ fetch(fURL)
           alert('Unable to connect to cat facts');
         });
 
-      //   document.getElementById('close-modal').onclick = function changeContent() {
+        document.getElementById('close-modal').onclick = function changeContent() {
 
-      //     $("#exampleModal").modal("hide"); 
+          $("#exampleModal").modal("hide"); 
        
-      //  }
+       }
       
 
 // cat fact api end        
@@ -60,9 +60,9 @@ function getApi() {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b&health=' + selectedValue;
   }
 
-  // if (document.getElementById('yes').checked) {
-  //   $("#exampleModal").modal('show');
-  // } 
+  if (document.getElementById('yes').checked) {
+    $("#exampleModal").modal('show');
+  } 
 
 
 
