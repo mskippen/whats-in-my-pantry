@@ -206,7 +206,7 @@ function getApi() {
 
   // scrolls user down to the top of the first row of cards
   setTimeout(function afterTwoSeconds() {
-    window.location.href = "file:///Users/watts/Desktop/Bootcamp/Homework/whats-in-my-pantry/index.html#top";
+    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
   }, 2000)
 }
 
