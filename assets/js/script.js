@@ -82,6 +82,7 @@ function getApi() {
   }
 
   if (document.getElementById('yes').checked) {
+    
     $("#exampleModal").modal('show');
   } 
 
