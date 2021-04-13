@@ -43,7 +43,7 @@ THEN the saved events persist
 
 ## The following provides details of the project team involved in the development of this app
 
-![A user clicks on slots on the color-coded calendar and edits the events.](./assets/img/whatsInMyPantryPT.png)
+![Project Team](./assets/img/whatsInMyPantryPT.png)
 
 ## URLs
 
