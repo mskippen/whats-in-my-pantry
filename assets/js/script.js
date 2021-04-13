@@ -40,6 +40,7 @@ function getStorage() {
 // cat fact api start
 var fURL = 'https://cat-fact.herokuapp.com/facts';
 fetch(fURL)
+
   .then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
