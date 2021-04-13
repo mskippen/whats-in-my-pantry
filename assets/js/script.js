@@ -277,6 +277,7 @@ ingredientIDShow.addEventListener("click", function (event) {
   // Checks if element is a button
   if (element.matches("button") === true) {
     var index = element.getAttribute("data-index");
+    // removes button and string from the ingrediantsAll array
     const newArray = ingredientsAll.filter(item => item !== index)
     ingredientsAll = newArray;
     storeTodos();
