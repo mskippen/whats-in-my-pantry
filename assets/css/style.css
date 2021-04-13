@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto Slab', serif;
 }
@@ -12,7 +16,6 @@ h1 {
   font-size: 70px;
   color: black;
 }
-
 
 
 

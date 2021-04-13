@@ -7,25 +7,46 @@ var addList = document.getElementById('addList');
 var cardsShow = document.querySelector('.card');
 var cardGroup = document.querySelector('#card-group');
 var cardGroup2 = document.querySelector('#card-group2');
+var clearBtn = document.querySelector('#clearBtn');
 
-// Set var parse to local storage
-var savedIngredients = JSON.parse(localStorage.getItem("ingredients")) || []
-console.log(savedIngredients)
-window.addEventListener("load", function() {
-  savedIngredients.forEach(function(ingredient) {
-    var newIngredientBtn = document.createElement('p');
-    newIngredientBtn.textContent = ingredient;
+var ingredientsAll = JSON.parse(localStorage.getItem("todos")) || [];
+console.log(ingredientsAll);
+
+getStorage();
+
+function getStorage() {
+  ingredientIDShow.innerHTML = "";
+  var storedStuff = JSON.parse(localStorage.getItem("todos"));
+  if (storedStuff === null) {
+
+    return;
+  }
+  for (var i = 0; i < storedStuff.length; i++) {
+
+    var newIngredientBtn = document.createElement('button');
+    newIngredientBtn.classList = 'btn btn-primary m-1';
+    newIngredientBtn.textContent = storedStuff[i];
+    newIngredientBtn.setAttribute("data-index", storedStuff[i]);
     ingredientIDShow.append(newIngredientBtn);
-    document.getElementById("ingredients").value = "";
-  })
-})
-var ingredientsAll = [];
+    var newIngredientCross = document.createElement('i');
+    newIngredientCross.classList = 'm-1 fas fa-times';
+    newIngredientBtn.append(newIngredientCross);
+
+
+
+  }
+  if (storedStuff !== null) {
+    ingredientsAll = storedStuff;
+  }
+};
+
+
 
 // cat fact api start
 var fURL = 'https://cat-fact.herokuapp.com/facts';
- 
+
 fetch(fURL)
-.then(function (response) {
+  .then(function (response) {
     if (response.ok) {
         response.json().then(function (data) {
             random = Math.floor(Math.random() * 5);                
@@ -66,6 +87,7 @@ function getApi() {
 
 
 
+  fetchButton.addEventListener('click', fetch);
   console.log(requestUrl);
 
   fetch(requestUrl)
@@ -73,6 +95,8 @@ function getApi() {
       return response.json();
     })
     .then(function (data) {
+      cardGroup.innerHTML = "";
+      cardGroup2.innerHTML = "";
       console.log(data);
       if (ingredientsAll == "") {
         alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
@@ -84,7 +108,7 @@ function getApi() {
 
 
 
-      for (var i = 0; i < 4; i++) {
+      for (var i = 0; i < 5; i++) {
         newCard = document.createElement('div');
         newCard.classList = 'card';
         cardGroup.appendChild(newCard);
@@ -111,7 +135,7 @@ function getApi() {
 
       }
 
-      for (var i = 4; i < 9; i++) {
+      for (var i = 5; i < 10; i++) {
         newCard = document.createElement('div');
         newCard.classList = 'card';
         cardGroup2.appendChild(newCard);
@@ -138,19 +162,11 @@ function getApi() {
 
       }
     });
+
+    setTimeout(function afterTwoSeconds() {
+      window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
+    }, 2000)
 }
-// Start local storage
-function saveToLocalStorage (ingredient) {
-  var ingredientArr = []
-  if(localStorage.getItem("ingredients") === null) {
-      ingredientArr = []
-  } else {
-      ingredientArr = JSON.parse(localStorage.getItem("ingredients"))
-  }
-  ingredientArr.push(ingredient)
-  localStorage.setItem("ingredients", JSON.stringify(ingredientArr))
-}
-// End local storage
 
 fetchButton.addEventListener('click', getApi);
 
@@ -158,18 +174,20 @@ function addToList(event) {
   event.preventDefault();
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
-  console.log(ingredientsAll);
-  var newIngredientBtn = document.createElement('p');
+  var newIngredientBtn = document.createElement('button');
+  newIngredientBtn.classList = 'btn btn-primary m-1';
   newIngredientBtn.textContent = search;
+  newIngredientBtn.setAttribute("data-index", search);
   ingredientIDShow.append(newIngredientBtn);
+  var newIngredientCross = document.createElement('i');
+  newIngredientCross.classList = 'm-1 fas fa-times';
+  newIngredientBtn.append(newIngredientCross);
   document.getElementById("ingredients").value = "";
-  console.log(search)
-  saveToLocalStorage(search) //save to local storage
+  storeTodos();
+  getStorage()
 }
 
-
 addList.addEventListener('click', addToList);
-
 
 ingredientID.addEventListener("keyup", function (event) {
   // Number 13 is the "Enter" key on the keyboard
@@ -178,5 +196,39 @@ ingredientID.addEventListener("keyup", function (event) {
     event.preventDefault();
     // Trigger the button element with a click
     document.getElementById("addList").click();
+  }
+});
+
+
+function storeTodos() {
+  // Stringify and set key in localStorage to todos array
+  localStorage.setItem("todos", JSON.stringify(ingredientsAll));
+}
+
+// on click run clear storage
+clearBtn.addEventListener("click", clearStorage);
+
+
+function clearStorage() {
+  localStorage.clear();
+  ingredientIDShow.innerHTML = "";
+  cardGroup.innerHTML = "";
+  cardGroup2.innerHTML = "";
+  ingredientsAll = [];
+};
+
+// Add click event to todoList element
+ingredientIDShow.addEventListener("click", function (event) {
+  var element = event.target;
+
+  console.log(element);
+  // Checks if element is a button
+  if (element.matches("button") === true) {
+    var index = element.getAttribute("data-index");
+    const newArray = ingredientsAll.filter(item => item !== index)
+    ingredientsAll = newArray;
+    console.log(newArray);
+    storeTodos();
+    getStorage();
   }
 });
