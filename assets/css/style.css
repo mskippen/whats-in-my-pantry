@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Roboto Slab', serif;
 }
@@ -15,6 +19,8 @@ h1 {
 
 
 /*mobile compatable*/
+
+
 
 @media screen and (max-width: 767px) {
   h1 {
