@@ -60,11 +60,9 @@ fetch(fURL)
           alert('Unable to connect to cat facts');
         });
 
-        document.getElementById('close-modal').onclick = function changeContent() {
-
-          $("#exampleModal").modal("hide"); 
-       
-       }
+document.getElementById('close-modal').onclick = function changeContent() {
+  $("#factModal").modal("hide");
+}
       
 
 // cat fact api end        
@@ -83,7 +81,7 @@ function getApi() {
 
   if (document.getElementById('yes').checked) {
     
-    $("#exampleModal").modal('show');
+    $("#factModal").modal('show');
   } 
 
 
