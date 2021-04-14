@@ -160,9 +160,9 @@ function getApi() {
     });
 
   // scrolls user down to the top of the first row of cards
-  // setTimeout(function afterTwoSeconds() {
-  //   window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
-  // }, 2000)
+  setTimeout(function afterTwoSeconds() {
+    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
+  }, 2000)
 }
 
 //  when user clicks get recipe button run the getApi
