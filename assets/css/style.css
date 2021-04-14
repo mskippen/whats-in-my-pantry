@@ -12,6 +12,17 @@ h1 {
   font-size: 70px;
 }
 
+#choosen {
+  width:400px;
+  margin: 0 auto;
+}
+
+.input-group {
+  width:400px;
+  margin: 0 auto;
+}
+
+
 .fa-utensils {
   font-size: 70px;
   color: black;
@@ -19,11 +30,22 @@ h1 {
 
 @media screen and (max-width: 767px) {
   h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   .fa-utensils {
     font-size: 40px;
     color: black;
   }
+
+  #choosen {
+    width:100%;
+    margin: 0 auto;
+  }
+  
+  .input-group {
+    width:100%;
+    margin: 0 auto;
+  }
+  
 }

@@ -1,4 +1,3 @@
-var issueContainer = document.getElementById('issues');
 var fetchButton = document.getElementById('fetch-button');
 var ingredientID = document.getElementById('ingredients');
 var ingredientIDShow = document.getElementById('yourIngredients');
@@ -9,20 +8,21 @@ var cardGroup = document.querySelector('#card-group');
 var cardGroup2 = document.querySelector('#card-group2');
 var clearBtn = document.querySelector('#clearBtn');
 
+// string where ingredients are stored
 var ingredientsAll = JSON.parse(localStorage.getItem("todos")) || [];
 console.log(ingredientsAll);
 
+// get storage function when page reloads
 getStorage();
 
+// get storage from local storage
 function getStorage() {
   ingredientIDShow.innerHTML = "";
   var storedStuff = JSON.parse(localStorage.getItem("todos"));
   if (storedStuff === null) {
-
     return;
   }
   for (var i = 0; i < storedStuff.length; i++) {
-
     var newIngredientBtn = document.createElement('button');
     newIngredientBtn.classList = 'btn btn-primary m-1';
     newIngredientBtn.textContent = storedStuff[i];
@@ -31,21 +31,16 @@ function getStorage() {
     var newIngredientCross = document.createElement('i');
     newIngredientCross.classList = 'm-1 fas fa-times';
     newIngredientBtn.append(newIngredientCross);
-
-
-
   }
   if (storedStuff !== null) {
     ingredientsAll = storedStuff;
   }
 };
 
-
-
 // cat fact api start
 var fURL = 'https://cat-fact.herokuapp.com/facts';
-
 fetch(fURL)
+
   .then(function (response) {
     if (response.ok) {
         response.json().then(function (data) {
@@ -73,31 +68,26 @@ document.getElementById('close-modal-error').onclick = function changeContent() 
 
 // cat fact api end        
 
+// concatinate requestUrl using user parameters
 function getApi() {
   var plusSymbol = ingredientsAll.join("+");
   console.log(plusSymbol);
  
   var selectedValue = selectedElement.value;
-
   if (selectedValue == 'None') {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b';
-
   } else {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b&health=' + selectedValue;
   }
-  
- 
 
   if (document.getElementById('yes').checked) {
-    
     $("#factModal").modal('show');
-  } 
+  }
 
-
-
+  // click the fetch button
   fetchButton.addEventListener('click', fetch);
-  console.log(requestUrl);
 
+  // calls API to fetch ingredients from edamam recipe finder
   fetch(requestUrl)
     .then(function (response) {
       return response.json();
@@ -118,19 +108,16 @@ function getApi() {
         $("#errorModal").modal('show');
       }
 
-
-
+      //  make row of 5 bootstrap cards for the recipes the API finds
       for (var i = 0; i < 5; i++) {
         newCard = document.createElement('div');
         newCard.classList = 'card';
         cardGroup.appendChild(newCard);
-        // newCard.setAttribute('style', 'width: 350px');
         innerCard = document.createElement('div');
         innerCard.classList = 'card-body';
         newCard.appendChild(innerCard);
 
         var recipeImg = document.createElement('img');
-        // recipeImg.classList = 'card-img-top';
         recipeImg.setAttribute('src', data.hits[i].recipe.image);
         newCard.append(recipeImg);
 
@@ -141,23 +128,20 @@ function getApi() {
         cardContent2 = document.createElement('a')
         cardContent2.setAttribute('href', data.hits[i].recipe.url);
         cardContent2.classList = 'btn btn-primary';
-        // cardContent2.textContent = data.hits[i].recipe.url;
         cardContent2.textContent = "See recipe";
         innerCard.appendChild(cardContent2);
-
       }
 
+      //  make another row of 5 bootstrap cards for the recipes the API finds
       for (var i = 5; i < 10; i++) {
         newCard = document.createElement('div');
         newCard.classList = 'card';
         cardGroup2.appendChild(newCard);
-        // newCard.setAttribute('style', 'width: 350px');
         innerCard = document.createElement('div');
         innerCard.classList = 'card-body';
         newCard.appendChild(innerCard);
 
         var recipeImg = document.createElement('img');
-        // recipeImg.classList = 'card-img-top';
         recipeImg.setAttribute('src', data.hits[i].recipe.image)
         newCard.append(recipeImg);
 
@@ -168,20 +152,21 @@ function getApi() {
         cardContent2 = document.createElement('a')
         cardContent2.setAttribute('href', data.hits[i].recipe.url);
         cardContent2.classList = 'btn btn-primary';
-        // cardContent2.textContent = data.hits[i].recipe.url;
         cardContent2.textContent = "See recipe";
         innerCard.appendChild(cardContent2);
-
       }
     });
 
-    setTimeout(function afterTwoSeconds() {
-      window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
-    }, 2000)
+  // scrolls user down to the top of the first row of cards
+  setTimeout(function afterTwoSeconds() {
+    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
+  }, 2000)
 }
 
+//  when user clicks get recipe button run the getApi
 fetchButton.addEventListener('click', getApi);
 
+// add ingredient to list and create a button
 function addToList(event) {
 
   $('#confirm-fact').show();
@@ -189,8 +174,18 @@ function addToList(event) {
   $('#no-option').show();
 
   event.preventDefault();
+
+  // if no text in the ingredient field return from running the below code
+  if (ingredientID.value === "") {
+    $('#modal-body-error').text('You have not typed an ingredient in the ingredient field');
+        $("#errorModal").modal('show');
+    
+    return;
+  }
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
+
+  // console.log(search.input.value);
   var newIngredientBtn = document.createElement('button');
   newIngredientBtn.classList = 'btn btn-primary m-1';
   newIngredientBtn.textContent = search;
@@ -204,6 +199,7 @@ function addToList(event) {
   getStorage()
 }
 
+// when click on plus button add ingredient to array and create a button
 addList.addEventListener('click', addToList);
 
 ingredientID.addEventListener("keyup", function (event) {
@@ -230,7 +226,7 @@ function storeTodos() {
 // on click run clear storage
 clearBtn.addEventListener("click", clearStorage);
 
-
+//  when use clicks on clear button the storage is cleared
 function clearStorage() {
   localStorage.clear();
   ingredientIDShow.innerHTML = "";
@@ -243,18 +239,17 @@ function clearStorage() {
 ingredientIDShow.addEventListener("click", function (event) {
   var element = event.target;
 
-  console.log(element);
   // Checks if element is a button
   if (element.matches("button") === true) {
     var index = element.getAttribute("data-index");
     const newArray = ingredientsAll.filter(item => item !== index)
     ingredientsAll = newArray;
-    console.log(newArray);
     storeTodos();
     getStorage();
   }
-});
+
 
 $('#confirm-fact').hide();
 $('#yes-option').hide();
 $('#no-option').hide();
+
