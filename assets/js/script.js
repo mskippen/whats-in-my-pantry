@@ -237,6 +237,9 @@ function clearStorage() {
   cardGroup.innerHTML = "";
   cardGroup2.innerHTML = "";
   ingredientsAll = [];
+  $('#confirm-fact').hide();
+  $('#yes-option').hide();
+  $('#no-option').hide();
 };
 
 // Add click event to todoList element
