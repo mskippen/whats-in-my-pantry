@@ -251,6 +251,8 @@ ingredientIDShow.addEventListener("click", function (event) {
   }
 });
 
-$('#confirm-fact').hide();
-$('#yes-option').hide();
-$('#no-option').hide();
+$(document).ready(function(){
+  $('#confirm-fact').hide();
+  $('#yes-option').hide();
+  $('#no-option').hide();
+});
