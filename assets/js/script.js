@@ -87,7 +87,7 @@ function getApi() {
   }
 
   // click the fetch button
-  fetchButton.addEventListener('click', fetch);
+  // fetchButton.addEventListener('click', fetch);
 
   // calls API to fetch ingredients from edamam recipe finder
   fetch(requestUrl)
@@ -99,15 +99,13 @@ function getApi() {
       cardGroup2.innerHTML = "";
       console.log(data);      
       if (ingredientsAll == "") {
-        // alert('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
-        // return;
         $('#modal-body-error').text('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient. ');
         $("#errorModal").modal('show');
+        return;
       } else if (data.hits.length === 0) {
-        // alert('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird.');
-        // return;
         $('#modal-body-error').text('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird. ');
         $("#errorModal").modal('show');
+        return;
       }
 
       //  make row of 5 bootstrap cards for the recipes the API finds
