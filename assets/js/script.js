@@ -81,7 +81,7 @@ function getApi() {
 
 
 
-  if (document.getElementById('yes').checked) {
+  if (document.getElementById('yes').checked && ingredientsAll != "") {
     $("#factModal").modal('show');
   }
 
@@ -185,7 +185,7 @@ function addToList(event) {
   $('#confirm-fact').show();
   $('#yes-option').show();
   $('#no-option').show();
-  
+
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
 
