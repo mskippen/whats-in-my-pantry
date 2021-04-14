@@ -12,6 +12,10 @@ h1 {
   font-size: 70px;
 }
 
+h5 {
+  color:black;
+}
+
 #choosen {
   width: 400px;
   margin: 0 auto;
@@ -53,5 +57,10 @@ h1 {
   .input-group {
     width: 100%;
     margin: 0 auto;
+  }
+
+  h5 {
+    color:black;
+    font-size:15px;
   }
 }

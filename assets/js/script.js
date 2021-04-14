@@ -129,6 +129,7 @@ function getApi() {
 
         cardContent2 = document.createElement('a')
         cardContent2.setAttribute('href', data.hits[i].recipe.url);
+        cardContent2.setAttribute('target', '_blank');
         cardContent2.classList = 'btn btn-primary';
         cardContent2.textContent = "See recipe";
         innerCard.appendChild(cardContent2);
@@ -153,6 +154,7 @@ function getApi() {
 
         cardContent2 = document.createElement('a')
         cardContent2.setAttribute('href', data.hits[i].recipe.url);
+        cardContent2.setAttribute('target', '_blank');
         cardContent2.classList = 'btn btn-primary';
         cardContent2.textContent = "See recipe";
         innerCard.appendChild(cardContent2);
@@ -160,9 +162,9 @@ function getApi() {
     });
 
   // scrolls user down to the top of the first row of cards
-  setTimeout(function afterTwoSeconds() {
-    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
-  }, 2000)
+  // setTimeout(function afterTwoSeconds() {
+  //   window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
+  // }, 2000)
 }
 
 //  when user clicks get recipe button run the getApi
