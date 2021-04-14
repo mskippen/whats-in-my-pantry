@@ -79,6 +79,8 @@ function getApi() {
   } else {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b&health=' + selectedValue;
   }
+  
+ 
 
   if (document.getElementById('yes').checked) {
     $("#factModal").modal('show');
@@ -247,9 +249,10 @@ ingredientIDShow.addEventListener("click", function (event) {
     storeTodos();
     getStorage();
   }
+});
 
-
-$('#confirm-fact').hide();
-$('#yes-option').hide();
-$('#no-option').hide();
-
+$(document).ready(function(){
+  $('#confirm-fact').hide();
+  $('#yes-option').hide();
+  $('#no-option').hide();
+});
