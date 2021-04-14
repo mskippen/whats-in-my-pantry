@@ -40,8 +40,6 @@ function getStorage() {
 // cat fact api start
 var fURL = 'https://cat-fact.herokuapp.com/facts';
 fetch(fURL)
-
-
   .then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
@@ -162,9 +160,9 @@ function getApi() {
     });
 
   // scrolls user down to the top of the first row of cards
-  // setTimeout(function afterTwoSeconds() {
-  //   window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
-  // }, 2000)
+  setTimeout(function afterTwoSeconds() {
+    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
+  }, 2000)
 }
 
 //  when user clicks get recipe button run the getApi
@@ -173,9 +171,7 @@ fetchButton.addEventListener('click', getApi);
 // add ingredient to list and create a button
 function addToList(event) {
 
-  $('#confirm-fact').show();
-  $('#yes-option').show();
-  $('#no-option').show();
+  
 
   event.preventDefault();
 
@@ -183,9 +179,13 @@ function addToList(event) {
   if (ingredientID.value === "") {
     $('#modal-body-error').text('You have not typed an ingredient in the ingredient field');
     $("#errorModal").modal('show');
-
     return;
   }
+
+  $('#confirm-fact').show();
+  $('#yes-option').show();
+  $('#no-option').show();
+  
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
 
