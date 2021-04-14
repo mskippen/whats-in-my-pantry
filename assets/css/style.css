@@ -13,19 +13,22 @@ h1 {
 }
 
 #choosen {
-  width:400px;
+  width: 400px;
   margin: 0 auto;
 }
 
 .input-group {
-  width:400px;
+  width: 400px;
   margin: 0 auto;
 }
-
 
 .fa-utensils {
   font-size: 70px;
   color: black;
+}
+
+.cfact-header {
+  background-color: #ffc107;
 }
 
 @media screen and (max-width: 767px) {
@@ -39,13 +42,12 @@ h1 {
   }
 
   #choosen {
-    width:100%;
+    width: 100%;
     margin: 0 auto;
   }
-  
+
   .input-group {
-    width:100%;
+    width: 100%;
     margin: 0 auto;
   }
-  
 }
