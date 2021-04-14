@@ -41,21 +41,22 @@ function getStorage() {
 var fURL = 'https://cat-fact.herokuapp.com/facts';
 fetch(fURL)
 
+
   .then(function (response) {
     if (response.ok) {
-        response.json().then(function (data) {
-            random = Math.floor(Math.random() * 5);                
-            $('#modal-body').text(data[random].text);
-        });
-          } else {            
-            $('#modal-body-error').text('Error: ' + response.statusText);
-            $("#errorModal").modal('show');
-          }
-        })
-        .catch(function (error) {         
-          $('#modal-body-error').text('Unable to connect to cat facts');
-          $("#errorModal").modal('show');
-        });
+      response.json().then(function (data) {
+        random = Math.floor(Math.random() * 5);
+        $('#modal-body').text(data[random].text);
+      });
+    } else {
+      $('#modal-body-error').text('Error: ' + response.statusText);
+      $("#errorModal").modal('show');
+    }
+  })
+  .catch(function (error) {
+    $('#modal-body-error').text('Unable to connect to cat facts');
+    $("#errorModal").modal('show');
+  });
 
 document.getElementById('close-modal').onclick = function changeContent() {
   $("#factModal").modal("hide");
@@ -64,7 +65,7 @@ document.getElementById('close-modal').onclick = function changeContent() {
 document.getElementById('close-modal-error').onclick = function changeContent() {
   $("#errorModal").modal("hide");
 }
-      
+
 
 // cat fact api end        
 
@@ -72,22 +73,22 @@ document.getElementById('close-modal-error').onclick = function changeContent() 
 function getApi() {
   var plusSymbol = ingredientsAll.join("+");
   console.log(plusSymbol);
- 
+
   var selectedValue = selectedElement.value;
   if (selectedValue == 'None') {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b';
   } else {
     var requestUrl = 'https://api.edamam.com/search?q=' + plusSymbol + '&app_id=a708b654&app_key=1a35f3bcb285e9a50396ce817d7c521b&health=' + selectedValue;
   }
-  
- 
+
+
 
   if (document.getElementById('yes').checked) {
     $("#factModal").modal('show');
   }
 
   // click the fetch button
-  // fetchButton.addEventListener('click', fetch);
+  fetchButton.addEventListener('click', fetch);
 
   // calls API to fetch ingredients from edamam recipe finder
   fetch(requestUrl)
@@ -97,8 +98,9 @@ function getApi() {
     .then(function (data) {
       cardGroup.innerHTML = "";
       cardGroup2.innerHTML = "";
-      console.log(data);      
+      console.log(data);
       if (ingredientsAll == "") {
+
         $('#modal-body-error').text('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient. ');
         $("#errorModal").modal('show');
         return;
@@ -160,9 +162,9 @@ function getApi() {
     });
 
   // scrolls user down to the top of the first row of cards
-  setTimeout(function afterTwoSeconds() {
-    window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
-  }, 2000)
+  // setTimeout(function afterTwoSeconds() {
+  //   window.location.href = "https://mskippen.github.io/whats-in-my-pantry/#top";
+  // }, 2000)
 }
 
 //  when user clicks get recipe button run the getApi
@@ -180,8 +182,8 @@ function addToList(event) {
   // if no text in the ingredient field return from running the below code
   if (ingredientID.value === "") {
     $('#modal-body-error').text('You have not typed an ingredient in the ingredient field');
-        $("#errorModal").modal('show');
-    
+    $("#errorModal").modal('show');
+
     return;
   }
   var search = ingredientID.value.trim().toUpperCase();
@@ -205,13 +207,13 @@ function addToList(event) {
 addList.addEventListener('click', addToList);
 
 ingredientID.addEventListener("keyup", function (event) {
-  
+
   // Number 13 is the "Enter" key on the keyboard
   if (event.keyCode === 13) {
     $('#confirm-fact').show();
     $('#yes-option').show();
     $('#no-option').show();
-   
+
     // Cancel the default action, if needed
     event.preventDefault();
     // Trigger the button element with a click
@@ -251,7 +253,7 @@ ingredientIDShow.addEventListener("click", function (event) {
   }
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
   $('#confirm-fact').hide();
   $('#yes-option').hide();
   $('#no-option').hide();
