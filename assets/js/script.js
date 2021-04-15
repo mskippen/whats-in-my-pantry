@@ -235,16 +235,12 @@ function clearStorage() {
   $('#no-option').hide();
 };
 
-// console.log(index);
-
 // Add click event to todoList element
 ingredientIDShow.addEventListener("click", function (event) {
   var element = event.target;
 
-  console.dir(event.target);
-
   // Checks if element is a button
-  if (element.matches("button") === true || element.matches("i") === true ) {
+  if (element.matches("button") === true || element.matches("i") === true) {
     var index = element.getAttribute("data-index");
     const newArray = ingredientsAll.filter(item => item !== index)
     ingredientsAll = newArray;
