@@ -10,7 +10,6 @@ var clearBtn = document.querySelector('#clearBtn');
 
 // string where ingredients are stored
 var ingredientsAll = JSON.parse(localStorage.getItem("todos")) || [];
-console.log(ingredientsAll);
 
 // get storage function when page reloads
 getStorage();
@@ -30,6 +29,7 @@ function getStorage() {
     ingredientIDShow.append(newIngredientBtn);
     var newIngredientCross = document.createElement('i');
     newIngredientCross.classList = 'm-1 fas fa-times';
+    newIngredientCross.setAttribute("data-index", storedStuff[i]);
     newIngredientBtn.append(newIngredientCross);
   }
   if (storedStuff !== null) {
@@ -70,7 +70,6 @@ document.getElementById('close-modal-error').onclick = function changeContent() 
 // concatinate requestUrl using user parameters
 function getApi() {
   var plusSymbol = ingredientsAll.join("+");
-  console.log(plusSymbol);
 
   var selectedValue = selectedElement.value;
   if (selectedValue == 'None') {
@@ -92,7 +91,6 @@ function getApi() {
     .then(function (data) {
       cardGroup.innerHTML = "";
       cardGroup2.innerHTML = "";
-      console.log(data);
       if (ingredientsAll == "") {
 
         $('#modal-body-error').text('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient. ');
@@ -103,7 +101,6 @@ function getApi() {
         $("#errorModal").modal('show');
         return;
       }
-
 
       if (document.getElementById('yes').checked) {
         $("#factModal").modal('show');
@@ -186,8 +183,6 @@ function addToList(event) {
 
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
-
-  // console.log(search.input.value);
   var newIngredientBtn = document.createElement('button');
   newIngredientBtn.classList = 'btn btn-primary m-1';
   newIngredientBtn.textContent = search;
@@ -240,12 +235,16 @@ function clearStorage() {
   $('#no-option').hide();
 };
 
+// console.log(index);
+
 // Add click event to todoList element
 ingredientIDShow.addEventListener("click", function (event) {
   var element = event.target;
 
+  console.dir(event.target);
+
   // Checks if element is a button
-  if (element.matches("button") === true) {
+  if (element.matches("button") === true || element.matches("i") === true ) {
     var index = element.getAttribute("data-index");
     const newArray = ingredientsAll.filter(item => item !== index)
     ingredientsAll = newArray;
