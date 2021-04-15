@@ -81,10 +81,6 @@ function getApi() {
 
 
 
-  if (document.getElementById('yes').checked && ingredientsAll != "") {
-    $("#factModal").modal('show');
-  }
-
   // click the fetch button
   fetchButton.addEventListener('click', fetch);
 
@@ -106,6 +102,11 @@ function getApi() {
         $('#modal-body-error').text('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird. ');
         $("#errorModal").modal('show');
         return;
+      }
+
+
+      if (document.getElementById('yes').checked) {
+        $("#factModal").modal('show');
       }
 
       //  make row of 5 bootstrap cards for the recipes the API finds
@@ -170,9 +171,6 @@ fetchButton.addEventListener('click', getApi);
 
 // add ingredient to list and create a button
 function addToList(event) {
-
-  
-
   event.preventDefault();
 
   // if no text in the ingredient field return from running the below code
