@@ -52,7 +52,7 @@ fetch(fURL)
     }
   })
   .catch(function (error) {
-    $('#modal-body-error').text('Unable to connect to cat facts');
+    $('#modal-body-error').text('Unable to connect to cat facts.');
     $("#errorModal").modal('show');
   });
 
@@ -93,11 +93,11 @@ function getApi() {
       cardGroup2.innerHTML = "";
       if (ingredientsAll == "") {
 
-        $('#modal-body-error').text('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient. ');
+        $('#modal-body-error').text('You have not added any ingredients yet. Use the green plus symbol button to add each ingredient.');
         $("#errorModal").modal('show');
         return;
       } else if (data.hits.length === 0) {
-        $('#modal-body-error').text('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird. ');
+        $('#modal-body-error').text('There are no recipes available for your combination of ingredients. You may have spelled an ingredient wrong, or your search may be just too weird.');
         $("#errorModal").modal('show');
         return;
       }
@@ -172,7 +172,7 @@ function addToList(event) {
 
   // if no text in the ingredient field return from running the below code
   if (ingredientID.value === "") {
-    $('#modal-body-error').text('You have not typed an ingredient in the ingredient field');
+    $('#modal-body-error').text('You have not typed an ingredient in the ingredient field.');
     $("#errorModal").modal('show');
     return;
   }
@@ -183,14 +183,6 @@ function addToList(event) {
 
   var search = ingredientID.value.trim().toUpperCase();
   ingredientsAll.push(search);
-  var newIngredientBtn = document.createElement('button');
-  newIngredientBtn.classList = 'btn btn-primary m-1';
-  newIngredientBtn.textContent = search;
-  newIngredientBtn.setAttribute("data-index", search);
-  ingredientIDShow.append(newIngredientBtn);
-  var newIngredientCross = document.createElement('i');
-  newIngredientCross.classList = 'm-1 fas fa-times';
-  newIngredientBtn.append(newIngredientCross);
   document.getElementById("ingredients").value = "";
   storeTodos();
   getStorage()
