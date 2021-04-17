@@ -185,7 +185,7 @@ function addToList(event) {
   ingredientsAll.push(search);
   document.getElementById("ingredients").value = "";
   storeTodos();
-  getStorage()
+  getStorage();
 }
 
 // when click on plus button add ingredient to array and create a button
