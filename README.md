@@ -40,7 +40,15 @@ THEN the saved events persist<br>
 
 ## The following images demonstrate the application functionality
 
-![A user clicks on slots on the color-coded calendar and edits the events.]
+![The home screen.](./assets/img/WhatsInMyPantry.JPG)
+
+![A user enters the ingredients and dietary requirements.](./assets/img/IngredientsDietary.JPG)
+
+![Search for recipes with a cat fact modal.](./assets/img/CatFactModal.JPG)
+
+![Search shows ten recipes at time in a grid.](./assets/img/RecipesTen.JPG)
+
+![One example of an error modal.](./assets/img/ErrorModal.JPG)
 
 ## The following provides details of the project team involved in the development of this app
 
