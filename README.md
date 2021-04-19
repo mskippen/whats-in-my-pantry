@@ -44,14 +44,15 @@ THEN the saved events persist<br>
 
 ## The following provides details of the project team involved in the development of this app
 
-Michayla Constantinou	PHONE: 0421 860 923 EMAIL: michayla.constantinou@gmail.com GITHUB: Michayla-C<br>
-Sona Shrestha	PHONE: 0424 912 227 EMAIL:	sona.shrestha004@gmail.com GITHUB: sona29<br>
-Michelle Watts	PHONE: 0452 210 910	EMAIL: watts.e.michelle@gmail.com GITHUB: michellewatts20000<br>
-Megan Skippen	PHONE: 0406 611 044	EMAIL: msmskippen@gmail.com GITHUB: mskippen<br>
+Michayla Constantinou EMAIL: michayla.constantinou@gmail.com GITHUB: Michayla-C<br>
+Sona Shrestha	EMAIL:	sona.shrestha004@gmail.com GITHUB: sona29<br>
+Michelle Watts	EMAIL: watts.e.michelle@gmail.com GITHUB: michellewatts20000<br>
+Megan Skippen	EMAIL: msmskippen@gmail.com GITHUB: mskippen<br>
 
 ## URLs
 
 - The URL of the deployed application: <https://mskippen.github.io/whats-in-my-pantry/>
 - The URL of the GitHub repository, with a unique name and a README describing the project: <https://github.com/mskippen/whats-in-my-pantry.git>
+- The URL of our presentation to assist with your user experience: <https://drive.google.com/file/d/1lPUKhVikfyXAwV_BQTKxZ88n-9IMIv4C/view?usp=sharing>
 
 © 2021 project1-06. Confidential and Proprietary. All Rights Reserved
