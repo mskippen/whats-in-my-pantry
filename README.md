@@ -2,9 +2,9 @@
 
 ## The app functionality
 
-‘What's In My Pantry’ is an easy to use, all-in-one recipe search app that will display recipes based on a list of food items that are currently in your pantry<br>
-This app will allow you to check against a set list of allergies and dietary requirements<br>
-As a bonus, the app will present you with a fun cat fact to keep you and your guests entertained while cooking<br>
+WHAT'S IN MY PANTRY is an easy to use, all-in-one recipe search app that will display recipes based on a list of food items that are currently in your pantry<br>
+THIS APP will allow you to check against a set list of allergies and dietary requirements<br>
+AS A BONUS the app will present you with a fun cat fact to keep you and your guests entertained while cooking<br>
 
 ## Daily problem to solve using a persona example
 
