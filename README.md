@@ -4,7 +4,7 @@
 
 - The URL of the deployed application: <https://mskippen.github.io/whats-in-my-pantry/>
 - The URL of the GitHub repository, with a unique name and a README describing the project: <https://github.com/mskippen/whats-in-my-pantry.git>
-- The URL of our presentation to assist with your user experience: <https://drive.google.com/file/d/1lPUKhVikfyXAwV_BQTKxZ88n-9IMIv4C/view?usp=sharing>
+- The URL of our presentation to assist with your user experience: <https://drive.google.com/file/d/1VgKdZtOiFAXgQNw1Jv1laCC5kMSBO7NC/view?usp=sharing>
 
 ## The app functionality
 
@@ -62,7 +62,5 @@ Michayla Constantinou EMAIL: michayla.constantinou@gmail.com GITHUB: Michayla-C<
 Sona Shrestha	EMAIL:	sona.shrestha004@gmail.com GITHUB: sona29<br>
 Michelle Watts	EMAIL: watts.e.michelle@gmail.com GITHUB: michellewatts20000<br>
 Megan Skippen	EMAIL: msmskippen@gmail.com GITHUB: mskippen<br>
-
-
 
 © 2021 project1-06. Confidential and Proprietary. All Rights Reserved
